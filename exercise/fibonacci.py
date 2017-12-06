@@ -1,12 +1,12 @@
-def fibonacci(n):
-     if not isinstance(n,int):
-          return "!!! invalid number !!!"
+def fibonacci():
+     n = input("how many numbers do you want?")
+     n = int(n)
+     f = [0,1] # initial series
 
-     f = [0,1]
      while len(f) < n:
           f.append( f[-1]+f[-2] )
-     return f
-         
-     
 
-print(fibonacci(20))
+     print(f)
+
+
+fibonacci()

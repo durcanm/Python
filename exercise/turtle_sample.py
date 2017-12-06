@@ -38,19 +38,8 @@ def desen():
      for i in range(3,10):
           poligon(bob,100,i)
 
-#kare(bob,100)
-#sekil1(bob)
-#poligon(bob,100,6)
-#desen()
-
-
-
-
-
-
-import math
-
-def circle(t,radius):
+def daire(t,radius):
+     import math     
      circumference = 2 * 3.14 * radius
      print("circumference:",circumference)
      n = int(circumference / 3) + 3
@@ -58,13 +47,9 @@ def circle(t,radius):
      length = circumference / n
      poligon(t,length,n)
 
-
-#circle(bob,radius=100)
-
-
-
-
 def line(t,length,n):
+     bob.color("red")
+     bob.pensize(5)
      angle=360/n
      print("angle:",angle)
      for i in range(n):
@@ -75,15 +60,13 @@ def line(t,length,n):
           t.rt(angle)
 
 
-bob.color("red")
-bob.pensize(5)
 
-line(bob,100,20)
-
-
-
-
-
+kare(bob,100)
+#sekil1(bob)
+#poligon(bob,100,6)
+#desen()
+#daire(bob,radius=100)
+#line(bob,100,20)
 
 
 
