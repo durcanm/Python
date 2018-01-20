@@ -1,57 +1,77 @@
 import turtle
 
-bob=turtle.Turtle() # turtle module provides a function called Turtle()
-                    # that creates a Turtle object, which we assigned
-                    # to a variable named bıb
+bob = turtle.Turtle() # turtle module provides a function called Turtle()
+                      # that creates a Turtle object, which we assigned
+                      # to a variable named bıb
                     
-print(bob)          # <turtle.Turtle object at 0x02D292D0>
+print(bob)            # <turtle.Turtle object at 0x02D292D0>
 
 
 
-"""
-     fd: forward, in pixels
-     bk: backward
-     lt: left turn, angle in degrees
-     rt: right turn
-     pu: pen up
-     pd: pen down
-"""
+'''
+move:
+     forward()
+     backward()
+     right()
+     left()
+     
+speed:
+      0 : fastest
+     10 : fast
+      6 : normal
+      3 : slow
+      1 : slowest
+'''
 
 
 def kare(t,length):
+     t.write('kare',align='center')
+     t.penup()
+     t.goto(-length/2,-length/2)
+     t.pendown()
+     t.speed(1) #slowest
+     
      for i in range(4):
-          t.fd(length)
-          t.lt(90)
+          t.forward(length)
+          t.left(90)
 
-def sekil1(t):
+def sekil1(t,length):
+     t.penup()
+     t.goto(-length/2,-length/2)
+     t.pendown()
+     t.speed(0) #fastest
+
      for i in range(45):
-         t.fd(200)
-         t.lt(88)
+         t.forward(length)
+         t.left(88)
 
-def poligon(t,length,p):
+def poligon(t,length,p):     
      angle=360/p
      for i in range(p):
           t.fd(length)
           t.lt(angle)
 
 def desen():
-     for i in range(3,10):
+     bob.penup()
+     bob.goto(-50,-300)
+     bob.pendown()
+     for i in range(3,22):
           poligon(bob,100,i)
 
 def daire(t,radius):
      import math     
      circumference = 2 * 3.14 * radius
-     print("circumference:",circumference)
+     print('circumference:',circumference)
      n = int(circumference / 3) + 3
-     print("n:",n)
+     print('n:',n)
      length = circumference / n
      poligon(t,length,n)
 
-def line(t,length,n):
-     bob.color("red")
+def diken(t,length,n):
+     bob.color('red')
      bob.pensize(5)
      angle=360/n
-     print("angle:",angle)
+     print('angle:',angle)
      for i in range(n):
           t.fd(length)
           t.lt(180)
@@ -59,14 +79,35 @@ def line(t,length,n):
           t.rt(180)
           t.rt(angle)
 
+def renkli_daire(t):
+     bob.pensize(20)
+     bob.color('green', 'yellow')
+     bob.begin_fill()
+     bob.circle(80)
+     bob.end_fill()
+
+def renkli_poligon(t):
+     t.penup()
+     t.goto(-50,-150)
+     t.pendown()
+     t.pensize(20)
+     renkler=['red','green','blue','yellow','pink','brown','purple','orange','grey']
+     for renk in renkler:
+          t.color(renk)
+          t.forward(150)
+          t.left(360/len(renkler))
 
 
-kare(bob,100)
-#sekil1(bob)
+
+#kare(bob,100)
+#sekil1(bob,200)
 #poligon(bob,100,6)
 #desen()
 #daire(bob,radius=100)
-#line(bob,100,20)
+#diken(bob,100,20)
+#renkli_daire(bob)
+#renkli_poligon(bob)
+
 
 
 
